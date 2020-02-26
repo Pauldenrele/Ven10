@@ -4,13 +4,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.assignment.kotlinmvvm.interfaces.ItemClickListener
 import com.example.venten.MainActivity
 import com.example.venten.Model.venModel
 import com.example.venten.R
 import com.jakewharton.rxbinding.view.RxView
 import kotlinx.android.synthetic.main.carowner_item.view.*
 
-class listAdapter(var context: MainActivity, var mEmpList: ArrayList<venModel>, private val itemClick:ItemClickListener): RecyclerView.Adapter<listAdapter.listHolder>()  {
+class listAdapter(var context: MainActivity, var mEmpList: ArrayList<venModel>, private val itemClick: ItemClickListener): RecyclerView.Adapter<listAdapter.listHolder>()  {
 
     companion object {
         var mItemClickListener : ItemClickListener? = null
