@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import com.example.venten.Model.venModel
 import com.example.venten.Services.RetrofitService
 
-class AndroidViewModel: ViewModel() {
+class venViewModel: ViewModel() {
 
     private val mService  =  RetrofitService()
 
