@@ -1,16 +1,20 @@
 package com.example.venten.Dao
 
 import androidx.lifecycle.LiveData
+import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.example.venten.Model.venModel
+import com.example.venten.Model.venModelResp
 
+
+@Dao
 interface listDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun setList(listCars: venModel)
+    fun setList(listCars: List<venModelResp>)
 
-    @Query("SELECT * from list_table ORDER BY id ASC")
-    fun getList(): LiveData<List<venModel>>
+    @Query("SELECT * from " + venModelResp.TABLE_NAME)
+     fun getList(): LiveData<List<venModelResp>>
 }

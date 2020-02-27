@@ -1,14 +1,12 @@
 package com.example.venten.venDatabase
 
 import android.content.Context
-import androidx.room.Database
-import androidx.room.Room
-import androidx.room.RoomDatabase
+import androidx.room.*
 import com.example.venten.Dao.listDao
 import com.example.venten.Model.venModel
+import com.example.venten.Model.venModelResp
 
-@Database(entities = [venModel::class], version = 1, exportSchema = false)
-
+@Database(entities = [venModelResp::class], version = 1, exportSchema = false)
 abstract class venDatabase:RoomDatabase() {
 
     abstract fun venDao():listDao
