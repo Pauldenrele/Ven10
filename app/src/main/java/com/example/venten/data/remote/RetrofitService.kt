@@ -1,9 +1,9 @@
-package com.example.venten.Services
+package com.example.venten.data.remote
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
-import com.example.venten.Model.venModel
-import com.example.venten.interfaces.ApiInterface
+import com.example.venten.models.VenModel
+import com.example.venten.data.remote.api.ApiService
 import com.google.gson.GsonBuilder
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.Call
@@ -13,11 +13,11 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class RetrofitService {
 
-    val liveListResponse: MutableLiveData<List<venModel>> = MutableLiveData()
+    val liveListResponse: MutableLiveData<List<VenModel>> = MutableLiveData()
 
     companion object Factory {
         var gson = GsonBuilder().setLenient().create()
-        fun create(): ApiInterface {
+        fun create(): ApiService {
             Log.e("retrofit","create")
 
             val retrofit = Retrofit.Builder()
@@ -26,22 +26,23 @@ class RetrofitService {
                 .baseUrl("https://ven10.co/")
                 .build()
 
-            return retrofit.create(ApiInterface::class.java)
+            return retrofit.create(ApiService::class.java)
         }
     }
 
-    fun loadlist(): MutableLiveData<List<venModel>>? {
+    fun loadlist(): MutableLiveData<List<VenModel>>? {
 
         Log.e("loadlist","yes")
 
-        val retrofitCall  = create().getlist()
+        val retrofitCall  = create()
+            .getlist()
 
-        retrofitCall.enqueue(object : Callback<List<venModel>> {
-            override fun onFailure(call: Call<List<venModel>>, t: Throwable?) {
+        retrofitCall.enqueue(object : Callback<List<VenModel>> {
+            override fun onFailure(call: Call<List<VenModel>>, t: Throwable?) {
                 Log.e("on Failure :", "retrofit error")
             }
 
-            override fun onResponse(call: Call<List<venModel>>, response: retrofit2.Response<List<venModel>>) {
+            override fun onResponse(call: Call<List<VenModel>>, response: retrofit2.Response<List<VenModel>>) {
 
                 val list  = response.body()
                 for (i in list.orEmpty()){

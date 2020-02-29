@@ -14,7 +14,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".CsvActivity">
+
+        <activity android:name=".CarOwnersListActivity"
+            android:parentActivityName=".MainActivity">
+
+        </activity>
+
+        <activity android:name=".MainActivity">
+
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,8 +30,6 @@
             </intent-filter>
 
         </activity>
-        <activity android:name=".MainActivity">
-             </activity>
     </application>
 
 </manifest>

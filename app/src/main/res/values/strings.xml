@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">VenTen</string>
+    <string name="app_name">Ven10</string>
+    <string name="no_result_found">No Result Found</string>
 </resources>
