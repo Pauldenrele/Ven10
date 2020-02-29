@@ -93,8 +93,13 @@ class CarOwnersViewModel(application: Application): AndroidViewModel(application
 
         c.add(CarOwners(
 
+            1,"wilson","jack","sbirrr@gmail.com","",1980,
+            "Green","female","",""
+        ))
 
-            1,"wilson","jack","email","",1980,
+        c.add(CarOwners(
+
+            2,"Goke","james","aaa@gmail.com","",1999,
             "Green","female","",""
         ))
 
